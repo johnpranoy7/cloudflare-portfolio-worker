@@ -1,0 +1,105 @@
+---
+import { PERSON } from '../consts';
+---
+
+<section class="hero">
+	<div class="hero-content">
+		<p class="hero-greeting">Hi, I'm</p>
+		<h1>{PERSON.name}</h1>
+		<p class="hero-title">
+			<span class="accent">{PERSON.title}</span> · {PERSON.experience} · {PERSON.location}
+		</p>
+		<p class="hero-availability">{PERSON.availability}</p>
+
+		<div class="hero-description">
+			<p>
+				Full stack software engineer with 6+ years building enterprise applications on AWS and Red
+				Hat OpenShift — mostly Java and Spring Boot on the backend, Angular or React on the frontend.
+				A lot of my work has involved event-driven systems with Apache Kafka.
+			</p>
+			<p>
+				Over the last couple of years I've gone deep into applied AI — RAG pipelines, tool-calling
+				agents, and LLM integration with Spring AI, Pinecone, and pgvector. For my master's capstone
+				at Kennesaw State, I built a production-grade conversational AI with an LLM-as-Judge layer to
+				cut down on hallucinations — a full Spring Boot + React app, containerized and deployed on
+				AWS.
+			</p>
+		</div>
+
+		<p class="hero-footnote">
+			Recently completed my MS in Software Engineering (May 2026). See my
+			<a href="/#publications">publications</a> and <a href="/#experience">experience</a> below.
+		</p>
+	</div>
+</section>
+
+<style>
+	.hero {
+		padding: 2.5rem 0 3rem;
+	}
+
+	.hero-greeting {
+		font-size: 1.1rem;
+		color: rgb(var(--gray));
+		margin-bottom: 0.25rem;
+	}
+
+	.hero h1 {
+		font-size: clamp(2.5rem, 6vw, 3.5rem);
+		margin-bottom: 0.5rem;
+		letter-spacing: -0.02em;
+	}
+
+	.hero-title {
+		font-size: 1.2rem;
+		margin-bottom: 0.5rem;
+		color: rgb(var(--gray-dark));
+	}
+
+	.hero-availability {
+		font-size: 0.95rem;
+		font-weight: 700;
+		color: var(--accent);
+		margin-bottom: 1.75rem;
+	}
+
+	.accent {
+		color: var(--accent);
+		font-weight: 700;
+	}
+
+	.hero-description {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1.5rem 2.5rem;
+		max-width: 100%;
+		margin-bottom: 1.5rem;
+	}
+
+	.hero-description p {
+		margin: 0;
+		font-size: 1.05rem;
+		color: rgb(var(--gray-dark));
+		line-height: 1.8;
+	}
+
+	.hero-footnote {
+		margin: 0;
+		padding-top: 1.25rem;
+		border-top: 1px solid rgb(var(--gray-light));
+		font-size: 0.95rem;
+		color: rgb(var(--gray));
+		line-height: 1.6;
+	}
+
+	.hero-footnote strong {
+		color: rgb(var(--gray-dark));
+	}
+
+	@media (max-width: 720px) {
+		.hero-description {
+			grid-template-columns: 1fr;
+			gap: 1.25rem;
+		}
+	}
+</style>

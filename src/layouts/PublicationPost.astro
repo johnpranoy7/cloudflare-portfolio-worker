@@ -1,0 +1,134 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+
+interface Props {
+	title: string;
+	description: string;
+	venue: string;
+	pubDate: Date;
+	paperUrl: string;
+}
+
+const { title, description, venue, pubDate, paperUrl } = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} />
+	</head>
+	<body>
+		<Header />
+		<main class="publication-main">
+			<article>
+				<div class="prose">
+					<a href="/#publications" class="back-link">← Back to publications</a>
+					<header class="publication-header">
+						<div class="meta">
+							<span class="venue">{venue}</span>
+							<time><FormattedDate date={pubDate} /></time>
+						</div>
+						<h1>{title}</h1>
+						<p class="lead">{description}</p>
+						<a href={paperUrl} target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+							Read Paper →
+						</a>
+						<hr />
+					</header>
+					<slot />
+				</div>
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.publication-main {
+		width: 100%;
+		max-width: 100%;
+		margin: 0;
+		padding: 0;
+	}
+
+	.prose {
+		width: 720px;
+		max-width: calc(100% - 2em);
+		margin: auto;
+		padding: 2em 1em 4em;
+		color: rgb(var(--gray-dark));
+	}
+
+	.publication-header {
+		margin-bottom: 2rem;
+	}
+
+	.back-link {
+		display: inline-block;
+		font-size: 0.9rem;
+		font-weight: 700;
+		color: rgb(var(--gray));
+		text-decoration: none;
+		margin-bottom: 1.5rem;
+	}
+
+	.back-link:hover {
+		color: var(--accent);
+	}
+
+	.meta {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.75rem;
+		margin-bottom: 0.75rem;
+	}
+
+	.venue {
+		font-size: 0.75rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+		padding: 0.2rem 0.6rem;
+		border-radius: 999px;
+		background: rgba(var(--accent-rgb), 0.1);
+		color: var(--accent-dark);
+	}
+
+	time {
+		font-size: 0.9rem;
+		color: rgb(var(--gray));
+	}
+
+	.publication-header h1 {
+		margin: 0 0 0.75rem;
+		font-size: 2rem;
+		line-height: 1.25;
+	}
+
+	.lead {
+		font-size: 1.1rem;
+		color: rgb(var(--gray));
+		margin-bottom: 1.25rem;
+		line-height: 1.6;
+	}
+
+	.btn {
+		display: inline-block;
+		padding: 0.55rem 1.2rem;
+		border-radius: 8px;
+		font-size: 0.9rem;
+		font-weight: 700;
+		text-decoration: none;
+		background: var(--accent);
+		color: #fff;
+		transition: background 0.2s;
+	}
+
+	.btn:hover {
+		background: var(--accent-dark);
+		color: #fff;
+	}
+</style>

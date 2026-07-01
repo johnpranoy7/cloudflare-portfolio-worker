@@ -1,0 +1,127 @@
+---
+import { getCollection } from 'astro:content';
+import FormattedDate from '../components/FormattedDate.astro';
+
+const publications = (await getCollection('publications')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<section id="publications" class="publications">
+	<div class="section-header">
+		<h2>Publications</h2>
+		<p class="section-subtitle">Peer-reviewed research from graduate work at Kennesaw State University</p>
+	</div>
+
+	<div class="publication-grid">
+		{
+			publications.map((pub) => (
+				<a href={`/publications/${pub.id}/`} class="publication-card">
+					<div class="card-top">
+						<span class="venue">{pub.data.venue}</span>
+						<time class="date">
+							<FormattedDate date={pub.data.pubDate} />
+						</time>
+					</div>
+					<h3>{pub.data.title}</h3>
+					<p>{pub.data.description}</p>
+					<span class="read-more">Read more →</span>
+				</a>
+			))
+		}
+	</div>
+</section>
+
+<style>
+	.publications {
+		margin: 3rem 0;
+		scroll-margin-top: 5rem;
+	}
+
+	.section-header {
+		margin-bottom: 1.5rem;
+	}
+
+	.section-header h2 {
+		font-size: 1.75rem;
+		margin: 0 0 0.35rem;
+	}
+
+	.section-subtitle {
+		margin: 0;
+		color: rgb(var(--gray));
+	}
+
+	.publication-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 1.25rem;
+	}
+
+	.publication-card {
+		display: flex;
+		flex-direction: column;
+		background: #fff;
+		border: 1px solid rgb(var(--gray-light));
+		border-radius: 12px;
+		padding: 1.5rem;
+		text-decoration: none;
+		color: inherit;
+		transition: box-shadow 0.2s, border-color 0.2s;
+	}
+
+	.publication-card:hover {
+		box-shadow: var(--box-shadow);
+		border-color: rgba(var(--accent-rgb), 0.3);
+	}
+
+	.card-top {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0.5rem;
+		margin-bottom: 0.75rem;
+	}
+
+	.venue {
+		font-size: 0.75rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+		padding: 0.2rem 0.6rem;
+		border-radius: 999px;
+		background: rgba(var(--accent-rgb), 0.1);
+		color: var(--accent-dark);
+	}
+
+	.date {
+		font-size: 0.85rem;
+		color: rgb(var(--gray));
+	}
+
+	.publication-card h3 {
+		font-size: 1.1rem;
+		margin: 0 0 0.65rem;
+		color: rgb(var(--black));
+		line-height: 1.4;
+	}
+
+	.publication-card p {
+		margin: 0 0 1rem;
+		font-size: 0.95rem;
+		color: rgb(var(--gray));
+		line-height: 1.6;
+		flex-grow: 1;
+	}
+
+	.read-more {
+		font-size: 0.9rem;
+		font-weight: 700;
+		color: var(--accent);
+	}
+
+	.publication-card:hover .read-more {
+		text-decoration: underline;
+	}
+</style>

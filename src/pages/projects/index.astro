@@ -1,0 +1,50 @@
+---
+import PageLayout from '../../components/PageLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { SITE_TITLE } from '../../consts';
+import { getCollection } from 'astro:content';
+
+const projects = (await getCollection('projects')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<PageLayout
+	title={`Projects | ${SITE_TITLE}`}
+	description="A collection of software projects spanning backend APIs, microservices, dashboards, and cloud infrastructure."
+>
+	<header class="page-header">
+		<h1>Projects</h1>
+		<p>
+			Selected work from {projects.length} projects across backend development, distributed systems,
+			and full-stack applications.
+		</p>
+	</header>
+
+	<div class="project-grid">
+		{projects.map((project) => <ProjectCard project={project} />)}
+	</div>
+</PageLayout>
+
+<style>
+	.page-header {
+		margin-bottom: 2.5rem;
+	}
+
+	.page-header h1 {
+		font-size: 2.25rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.page-header p {
+		color: rgb(var(--gray));
+		max-width: 560px;
+	}
+
+	.project-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+		gap: 1.25rem;
+		margin-bottom: 2rem;
+	}
+</style>

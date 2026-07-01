@@ -1,0 +1,88 @@
+---
+import { SKILLS } from '../consts';
+
+interface Props {
+	id?: string;
+	title?: string;
+	subtitle?: string;
+}
+
+const {
+	id,
+	title = 'Tech Stack',
+	subtitle = 'Technologies I work with, grouped by domain',
+} = Astro.props;
+---
+
+<section id={id} class="technologies">
+	<div class="section-header">
+		<h2>{title}</h2>
+		{subtitle && <p class="section-subtitle">{subtitle}</p>}
+	</div>
+
+	<div class="skills-grid">
+		{
+			SKILLS.map((group) => (
+				<div class="skill-group">
+					<h3>{group.category}</h3>
+					<p>{group.items.join(' · ')}</p>
+				</div>
+			))
+		}
+	</div>
+</section>
+
+<style>
+	.technologies {
+		margin: 3rem 0;
+		scroll-margin-top: 5rem;
+	}
+
+	.section-header {
+		margin-bottom: 1.5rem;
+	}
+
+	.section-header h2 {
+		font-size: 1.75rem;
+		margin: 0 0 0.35rem;
+	}
+
+	.section-subtitle {
+		margin: 0;
+		color: rgb(var(--gray));
+	}
+
+	.skills-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+		gap: 1rem;
+	}
+
+	.skill-group {
+		background: #fff;
+		border: 1px solid rgb(var(--gray-light));
+		border-radius: 12px;
+		padding: 1rem 1.25rem;
+		transition: box-shadow 0.2s, border-color 0.2s;
+	}
+
+	.skill-group:hover {
+		box-shadow: var(--box-shadow);
+		border-color: rgba(var(--accent-rgb), 0.3);
+	}
+
+	.skill-group h3 {
+		font-size: 0.8rem;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		color: var(--accent);
+		margin-bottom: 0.5rem;
+	}
+
+	.skill-group p {
+		margin: 0;
+		font-size: 0.9rem;
+		color: rgb(var(--gray-dark));
+		line-height: 1.6;
+	}
+</style>

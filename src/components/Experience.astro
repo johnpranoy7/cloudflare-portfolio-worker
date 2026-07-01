@@ -1,0 +1,181 @@
+---
+import { EXPERIENCE } from '../consts';
+
+const typeLabels = { work: 'Work', education: 'Education' };
+---
+
+<section id="experience" class="experience">
+	<div class="section-header">
+		<h2>Experience</h2>
+		<p class="section-subtitle">A brief overview of my career</p>
+	</div>
+
+	<ol class="timeline">
+		{
+			EXPERIENCE.map((entry) => (
+				<li class="timeline-item">
+					<div class="timeline-marker" aria-hidden="true" />
+					<div class="timeline-card">
+						<div class="timeline-meta">
+							<time>
+								{entry.startDate} – {entry.endDate}
+							</time>
+							<span class:list={['badge', entry.type]}>{typeLabels[entry.type]}</span>
+						</div>
+						<h3>{entry.title}</h3>
+						<p class="organization">{entry.organization}</p>
+						<p class="description">{entry.description}</p>
+						{entry.tags && (
+							<div class="tags">
+								{entry.tags.map((tag) => (
+									<span class="tag">{tag}</span>
+								))}
+							</div>
+						)}
+					</div>
+				</li>
+			))
+		}
+	</ol>
+</section>
+
+<style>
+	.experience {
+		margin: 3rem 0;
+		scroll-margin-top: 5rem;
+	}
+
+	.section-header {
+		margin-bottom: 2rem;
+	}
+
+	.section-header h2 {
+		font-size: 1.75rem;
+		margin: 0 0 0.35rem;
+	}
+
+	.section-subtitle {
+		margin: 0;
+		color: rgb(var(--gray));
+		font-size: 1rem;
+	}
+
+	.timeline {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		position: relative;
+	}
+
+	.timeline::before {
+		content: '';
+		position: absolute;
+		left: 0.45rem;
+		top: 0.5rem;
+		bottom: 0.5rem;
+		width: 2px;
+		background: rgb(var(--gray-light));
+	}
+
+	.timeline-item {
+		position: relative;
+		padding-left: 2rem;
+		padding-bottom: 1.75rem;
+	}
+
+	.timeline-item:last-child {
+		padding-bottom: 0;
+	}
+
+	.timeline-marker {
+		position: absolute;
+		left: 0;
+		top: 0.5rem;
+		width: 1rem;
+		height: 1rem;
+		border-radius: 50%;
+		background: var(--accent);
+		border: 3px solid #fff;
+		box-shadow: 0 0 0 2px rgba(var(--accent-rgb), 0.25);
+	}
+
+	.timeline-card {
+		background: #fff;
+		border: 1px solid rgb(var(--gray-light));
+		border-radius: 12px;
+		padding: 1.25rem 1.5rem;
+		transition: box-shadow 0.2s;
+	}
+
+	.timeline-card:hover {
+		box-shadow: var(--box-shadow);
+	}
+
+	.timeline-meta {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.5rem 0.75rem;
+		margin-bottom: 0.5rem;
+	}
+
+	time {
+		font-size: 0.85rem;
+		font-weight: 700;
+		color: rgb(var(--gray));
+	}
+
+	.badge {
+		font-size: 0.7rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+		padding: 0.15rem 0.5rem;
+		border-radius: 999px;
+	}
+
+	.badge.work {
+		background: rgba(var(--accent-rgb), 0.1);
+		color: var(--accent-dark);
+	}
+
+	.badge.education {
+		background: rgb(var(--gray-light));
+		color: rgb(var(--gray-dark));
+	}
+
+	.timeline-card h3 {
+		font-size: 1.2rem;
+		margin: 0 0 0.15rem;
+		color: rgb(var(--black));
+	}
+
+	.organization {
+		font-size: 0.95rem;
+		font-weight: 700;
+		color: var(--accent);
+		margin: 0 0 0.75rem;
+	}
+
+	.description {
+		font-size: 0.95rem;
+		color: rgb(var(--gray-dark));
+		line-height: 1.6;
+		margin: 0 0 0.75rem;
+	}
+
+	.tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.35rem;
+	}
+
+	.tag {
+		font-size: 0.75rem;
+		font-weight: 700;
+		padding: 0.2rem 0.55rem;
+		border-radius: 999px;
+		background: rgb(var(--gray-light));
+		color: rgb(var(--gray-dark));
+	}
+</style>

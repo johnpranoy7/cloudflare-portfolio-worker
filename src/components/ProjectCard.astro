@@ -1,0 +1,127 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+	project: CollectionEntry<'projects'>;
+}
+
+const { project } = Astro.props;
+const { title, description, techStack, githubUrl, liveUrl } = project.data;
+const href = `/projects/${project.id}/`;
+---
+
+<article class="project-card">
+	<a href={href} class="card-link">
+		<div class="card-header">
+			<h3>{title}</h3>
+			<span class="arrow" aria-hidden="true">→</span>
+		</div>
+		<p class="card-description">{description}</p>
+	</a>
+	<div class="card-tags">
+		{techStack.map((tech) => <span class="tag">{tech}</span>)}
+	</div>
+	{(githubUrl || liveUrl) && (
+		<div class="card-links">
+			{githubUrl && (
+				<a href={githubUrl} target="_blank" rel="noopener noreferrer" class="external-link">
+					Code
+				</a>
+			)}
+			{liveUrl && (
+				<a href={liveUrl} target="_blank" rel="noopener noreferrer" class="external-link">
+					Live Demo
+				</a>
+			)}
+		</div>
+	)}
+</article>
+
+<style>
+	.project-card {
+		background: #fff;
+		border: 1px solid rgb(var(--gray-light));
+		border-radius: 12px;
+		padding: 1.5rem;
+		transition: box-shadow 0.2s, border-color 0.2s;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.project-card:hover {
+		box-shadow: var(--box-shadow);
+		border-color: rgba(var(--accent-rgb), 0.3);
+	}
+
+	.card-link {
+		text-decoration: none;
+		color: inherit;
+	}
+
+	.card-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		gap: 0.5rem;
+	}
+
+	.card-header h3 {
+		font-size: 1.25rem;
+		margin: 0;
+		color: rgb(var(--black));
+	}
+
+	.arrow {
+		color: var(--accent);
+		font-size: 1.25rem;
+		opacity: 0;
+		transition: opacity 0.2s, transform 0.2s;
+	}
+
+	.project-card:hover .arrow {
+		opacity: 1;
+		transform: translateX(4px);
+	}
+
+	.card-description {
+		margin: 0.5rem 0 0;
+		font-size: 0.95rem;
+		color: rgb(var(--gray));
+		line-height: 1.5;
+	}
+
+	.card-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4rem;
+	}
+
+	.tag {
+		font-size: 0.75rem;
+		font-weight: 700;
+		padding: 0.2rem 0.6rem;
+		border-radius: 999px;
+		background: rgba(var(--accent-rgb), 0.08);
+		color: var(--accent-dark);
+	}
+
+	.card-links {
+		display: flex;
+		gap: 1rem;
+		margin-top: auto;
+		padding-top: 0.5rem;
+		border-top: 1px solid rgb(var(--gray-light));
+	}
+
+	.external-link {
+		font-size: 0.85rem;
+		font-weight: 700;
+		text-decoration: none;
+		color: var(--accent);
+	}
+
+	.external-link:hover {
+		text-decoration: underline;
+	}
+</style>

@@ -4,19 +4,60 @@
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
 
-:root {
+/* Warm Paper — default. Cream canvas, white cards, black text, blue accent */
+[data-theme='warm'] {
+	color-scheme: light;
+
 	--accent: #2563eb;
 	--accent-dark: #1d4ed8;
 	--accent-rgb: 37, 99, 235;
+	--accent-text: 255, 255, 255;
 	--black: 15, 18, 25;
-	--gray: 96, 115, 159;
-	--gray-light: 229, 233, 240;
-	--gray-dark: 34, 41, 57;
-	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
+	--gray: 100, 108, 120;
+	--gray-light: 222, 216, 204;
+	--gray-dark: 40, 44, 52;
+	--surface: 255, 255, 255;
+	--surface-heading: 15, 18, 25;
+	--surface-body: 40, 44, 52;
+	--surface-muted: 100, 108, 120;
+	--surface-border: 222, 216, 204;
+	--surface-subtle: 236, 232, 224;
+	--header-bg: 252, 250, 246;
+	--timeline-ring: 255, 255, 255;
+	--body-gradient-start: rgba(235, 228, 214, 0.9);
+	--body-gradient-end: 244, 240, 232;
+	--header-shadow: 0 1px 3px rgba(40, 36, 30, 0.06), 0 4px 14px rgba(40, 36, 30, 0.04);
 	--box-shadow:
-		0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
-		0 16px 32px rgba(var(--gray), 33%);
+		0 1px 3px rgba(40, 36, 30, 0.05), 0 6px 20px rgba(40, 36, 30, 0.06);
 }
+
+/* Charcoal — warm dark canvas, cream cards (same contrast idea as warm paper) */
+[data-theme='charcoal'] {
+	color-scheme: dark;
+
+	--accent: #6ba3d4;
+	--accent-dark: #4f8fc4;
+	--accent-rgb: 107, 163, 212;
+	--accent-text: 26, 24, 22;
+	--black: 250, 248, 244;
+	--gray: 168, 160, 148;
+	--gray-light: 62, 58, 52;
+	--gray-dark: 216, 210, 200;
+	--surface: 250, 248, 244;
+	--surface-heading: 15, 18, 25;
+	--surface-body: 40, 44, 52;
+	--surface-muted: 100, 108, 120;
+	--surface-border: 214, 208, 196;
+	--surface-subtle: 238, 234, 226;
+	--header-bg: 48, 45, 40;
+	--timeline-ring: 250, 248, 244;
+	--body-gradient-start: rgba(56, 53, 48, 0.98);
+	--body-gradient-end: 38, 36, 32;
+	--header-shadow: 0 1px 0 rgba(255, 255, 255, 0.06);
+	--box-shadow:
+		0 2px 8px rgba(0, 0, 0, 0.22), 0 8px 24px rgba(0, 0, 0, 0.16);
+}
+
 html {
 	scroll-behavior: smooth;
 }
@@ -39,8 +80,9 @@ body {
 	margin: 0;
 	padding: 0;
 	text-align: left;
-	background: linear-gradient(var(--gray-gradient)) no-repeat;
-	background-size: 100% 600px;
+	background: linear-gradient(180deg, var(--body-gradient-start), rgb(var(--body-gradient-end))) no-repeat;
+	background-size: 100% 520px;
+	background-color: rgb(var(--body-gradient-end));
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	color: rgb(var(--gray-dark));
@@ -97,9 +139,15 @@ p {
 textarea {
 	width: 100%;
 	font-size: 16px;
+	background: rgb(var(--surface));
+	color: rgb(var(--surface-body));
+	border: 1px solid rgb(var(--surface-border));
 }
 input {
 	font-size: 16px;
+	background: rgb(var(--surface));
+	color: rgb(var(--surface-body));
+	border: 1px solid rgb(var(--surface-border));
 }
 table {
 	width: 100%;
@@ -117,6 +165,8 @@ code {
 pre {
 	padding: 1.5em;
 	border-radius: 8px;
+	background: rgb(var(--surface));
+	border: 1px solid rgb(var(--surface-border));
 }
 pre > code {
 	all: unset;
@@ -148,12 +198,8 @@ hr {
 	height: 1px;
 	width: 1px;
 	overflow: hidden;
-	/* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
 	clip: rect(1px 1px 1px 1px);
-	/* maybe deprecated but we need to support legacy browsers */
 	clip: rect(1px, 1px, 1px, 1px);
-	/* modern browsers, clip-path works inwards from each corner */
 	clip-path: inset(50%);
-	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
 	white-space: nowrap;
 }

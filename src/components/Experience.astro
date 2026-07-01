@@ -95,13 +95,13 @@ const typeLabels = { work: 'Work', education: 'Education' };
 		height: 1rem;
 		border-radius: 50%;
 		background: var(--accent);
-		border: 3px solid #fff;
+		border: 3px solid rgb(var(--timeline-ring));
 		box-shadow: 0 0 0 2px rgba(var(--accent-rgb), 0.25);
 	}
 
 	.timeline-card {
-		background: #fff;
-		border: 1px solid rgb(var(--gray-light));
+		background: rgb(var(--surface));
+		border: 1px solid rgb(var(--surface-border));
 		border-radius: 12px;
 		padding: 1.25rem 1.5rem;
 		transition: box-shadow 0.2s, border-color 0.2s;
@@ -120,10 +120,11 @@ const typeLabels = { work: 'Work', education: 'Education' };
 		margin-bottom: 0.5rem;
 	}
 
+	.time-in-card,
 	time {
 		font-size: 0.85rem;
 		font-weight: 700;
-		color: rgb(var(--gray));
+		color: rgb(var(--surface-muted));
 	}
 
 	.badge {
@@ -141,14 +142,14 @@ const typeLabels = { work: 'Work', education: 'Education' };
 	}
 
 	.badge.education {
-		background: rgb(var(--gray-light));
-		color: rgb(var(--gray-dark));
+		background: rgb(var(--surface-subtle));
+		color: rgb(var(--surface-body));
 	}
 
 	.timeline-card h3 {
 		font-size: 1.2rem;
 		margin: 0 0 0.15rem;
-		color: rgb(var(--gray-dark));
+		color: rgb(var(--surface-heading));
 	}
 
 	.organization {
@@ -160,7 +161,7 @@ const typeLabels = { work: 'Work', education: 'Education' };
 
 	.description {
 		font-size: 0.95rem;
-		color: rgb(var(--gray-dark));
+		color: rgb(var(--surface-body));
 		line-height: 1.6;
 		margin: 0 0 0.75rem;
 	}
@@ -176,7 +177,7 @@ const typeLabels = { work: 'Work', education: 'Education' };
 		font-weight: 700;
 		padding: 0.2rem 0.55rem;
 		border-radius: 999px;
-		background: rgb(var(--gray-light));
-		color: rgb(var(--gray-dark));
+		background: rgb(var(--surface-subtle));
+		color: rgb(var(--surface-body));
 	}
 </style>

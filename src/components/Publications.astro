@@ -61,8 +61,8 @@ const publications = (await getCollection('publications')).sort(
 	.publication-card {
 		display: flex;
 		flex-direction: column;
-		background: #fff;
-		border: 1px solid rgb(var(--gray-light));
+		background: rgb(var(--surface));
+		border: 1px solid rgb(var(--surface-border));
 		border-radius: 12px;
 		padding: 1.5rem;
 		text-decoration: none;
@@ -97,20 +97,20 @@ const publications = (await getCollection('publications')).sort(
 
 	.date {
 		font-size: 0.85rem;
-		color: rgb(var(--gray));
+		color: rgb(var(--surface-muted));
 	}
 
 	.publication-card h3 {
 		font-size: 1.1rem;
 		margin: 0 0 0.65rem;
-		color: rgb(var(--black));
+		color: rgb(var(--surface-heading));
 		line-height: 1.4;
 	}
 
 	.publication-card p {
 		margin: 0 0 1rem;
 		font-size: 0.95rem;
-		color: rgb(var(--gray));
+		color: rgb(var(--surface-muted));
 		line-height: 1.6;
 		flex-grow: 1;
 	}

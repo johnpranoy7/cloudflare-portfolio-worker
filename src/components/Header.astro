@@ -1,18 +1,22 @@
 ---
 import HeaderLink from './HeaderLink.astro';
+import ThemeToggle from './ThemeToggle.astro';
 import { SITE_TITLE, RESUME } from '../consts';
 ---
 
 <header>
 	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
-		<div class="internal-links">
+		<h2 class="nav-brand"><a href="/">{SITE_TITLE}</a></h2>
+		<div class="nav-menu">
 			<HeaderLink href="/#experience">Experience</HeaderLink>
 			<HeaderLink href="/projects">Projects</HeaderLink>
 			<HeaderLink href="/#publications">Publications</HeaderLink>
 			<HeaderLink href="/#skills">Tech Stack</HeaderLink>
 			<HeaderLink href="/about">About</HeaderLink>
 			<HeaderLink href="/#contact">Contact</HeaderLink>
+		</div>
+		<div class="nav-actions">
+			<ThemeToggle />
 			<a href={RESUME.url} class="resume-link" target="_blank" rel="noopener noreferrer">
 				{RESUME.label}
 			</a>
@@ -23,87 +27,127 @@ import { SITE_TITLE, RESUME } from '../consts';
 	header {
 		margin: 0;
 		padding: 0 1.25em;
-		background: white;
-		box-shadow: 0 2px 8px rgba(var(--black), 5%);
+		background: rgb(var(--header-bg));
+		box-shadow: var(--header-shadow);
 		position: sticky;
 		top: 0;
 		z-index: 100;
 	}
-	h2 {
-		margin: 0;
-		font-size: 1.15rem;
-		font-weight: 700;
+
+	nav {
+		display: grid;
+		grid-template-columns: auto 1fr auto;
+		align-items: center;
+		column-gap: 0.75rem;
+		max-width: 960px;
+		margin: 0 auto;
+		min-height: 3.75rem;
 	}
 
-	h2 a {
+	.nav-brand {
+		margin: 0;
+		font-size: 1.1rem;
+		font-weight: 700;
+		white-space: nowrap;
+	}
+
+	.nav-brand a {
 		text-decoration: none;
 		color: rgb(var(--black));
 	}
 
-	h2 a.active {
-		text-decoration: none;
-	}
-	nav {
+	.nav-menu {
 		display: flex;
 		align-items: center;
-		justify-content: space-between;
-		max-width: 960px;
-		margin: 0 auto;
-		gap: 1rem;
-		min-height: 3.75rem;
-	}
-	.internal-links {
-		display: flex;
-		align-items: center;
-		flex-wrap: wrap;
 		justify-content: flex-end;
-		gap: 0.15rem;
+		flex-wrap: nowrap;
+		gap: 0;
+		min-width: 0;
 	}
-	nav a {
-		padding: 1.1em 0.6em;
+
+	.nav-actions {
+		display: flex;
+		align-items: center;
+		align-self: center;
+		flex-shrink: 0;
+		gap: 0.5rem;
+		height: 2.25rem;
+	}
+
+	.nav-menu :global(a) {
+		padding: 0.65rem 0.5em;
 		color: rgb(var(--gray-dark));
 		border-bottom: 4px solid transparent;
 		text-decoration: none;
-		font-size: 1rem;
+		font-size: 0.92rem;
 		font-weight: 600;
+		line-height: 1.2;
+		white-space: nowrap;
 	}
-	nav a.active {
-		text-decoration: none;
+
+	.nav-menu :global(a.active) {
 		border-bottom-color: var(--accent);
 		color: rgb(var(--black));
 	}
-	nav a:hover {
+
+	.nav-menu :global(a:hover) {
 		color: var(--accent);
 	}
+
 	.resume-link {
-		margin-left: 0.5rem;
-		padding: 0.55rem 1rem !important;
+		display: inline-flex !important;
+		align-items: center;
+		justify-content: center;
+		box-sizing: border-box;
+		height: 2.25rem;
+		padding: 0 0.9rem !important;
 		border-radius: 8px;
 		background: var(--accent) !important;
-		color: #fff !important;
+		color: rgb(var(--accent-text)) !important;
 		border: 2px solid var(--accent) !important;
-		border-bottom: 2px solid var(--accent) !important;
 		font-weight: 700;
-		font-size: 0.95rem !important;
+		font-size: 0.88rem !important;
+		line-height: 1;
+		text-decoration: none;
+		white-space: nowrap;
 		transition: background 0.2s, border-color 0.2s;
 	}
+
 	.resume-link:hover {
 		background: var(--accent-dark) !important;
 		border-color: var(--accent-dark) !important;
-		color: #fff !important;
+		color: rgb(var(--accent-text)) !important;
 	}
+
 	@media (max-width: 720px) {
 		nav {
-			flex-direction: column;
-			align-items: flex-start;
+			grid-template-columns: 1fr auto;
+			grid-template-rows: auto auto;
+			row-gap: 0.65rem;
 			padding: 0.75rem 0;
 			min-height: auto;
 		}
-		.internal-links {
-			justify-content: flex-start;
+
+		.nav-brand {
+			grid-column: 1;
+			grid-row: 1;
 		}
-		nav a {
-			padding: 0.5rem 0.6rem 0.5rem 0;
+
+		.nav-actions {
+			grid-column: 2;
+			grid-row: 1;
+			justify-self: end;
+		}
+
+		.nav-menu {
+			grid-column: 1 / -1;
+			grid-row: 2;
+			justify-content: flex-start;
+			flex-wrap: wrap;
+		}
+
+		.nav-menu :global(a) {
+			padding: 0.45rem 0.55rem 0.45rem 0;
 			font-size: 0.95rem;
 		}
 	}

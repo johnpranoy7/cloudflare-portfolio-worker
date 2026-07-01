@@ -2,8 +2,14 @@
 title: VR Consumer Behavior Research
 description: Immersive Unity VR retail simulation with published research at ACM VRST '25 and IEEE INFOCOM 2025.
 pubDate: 2024-09-01
+category: research
 techStack: ['Unity', 'C#', 'RAG', 'VR', 'Data Analytics']
-featured: true
+additionalGithubUrls:
+  - label: VRST Publication
+    url: /publications/vrst-planogram-analytics/
+  - label: INFOCOM Publication
+    url: /publications/infocom-officevr-qa/
+featured: false
 ---
 
 ## Overview
@@ -13,14 +19,10 @@ Graduate research project studying consumer behavior in virtual retail environme
 ## Publications
 
 - **ACM VRST '25** — VR-based shopper shelf perception analytics for planogram design
-- **IEEE INFOCOM 2025** — RAG-driven 3D VR question answering at the edge (workshop paper)
+- **IEEE INFOCOM 2025** — RAG-driven 3D VR question answering at the edge
 
 ## Key Features
 
-- **Unity VR simulation** — Immersive virtual retail store capturing shopper interaction telemetry
-- **Behavioral analytics** — Processed VR data to surface insights on consumer decision-making patterns
-- **RAG at the edge** — Explored RAG-driven question answering within 3D VR environments
-
-## Outcome
-
-Co-authored two peer-reviewed publications bridging VR consumer research with modern AI techniques.
+- Unity VR simulation capturing shopper interaction telemetry
+- Behavioral analytics surfacing consumer decision-making patterns
+- Co-authored two peer-reviewed publications

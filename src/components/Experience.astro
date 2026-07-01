@@ -104,11 +104,12 @@ const typeLabels = { work: 'Work', education: 'Education' };
 		border: 1px solid rgb(var(--gray-light));
 		border-radius: 12px;
 		padding: 1.25rem 1.5rem;
-		transition: box-shadow 0.2s;
+		transition: box-shadow 0.2s, border-color 0.2s;
 	}
 
 	.timeline-card:hover {
 		box-shadow: var(--box-shadow);
+		border-color: rgba(var(--accent-rgb), 0.3);
 	}
 
 	.timeline-meta {
@@ -147,7 +148,7 @@ const typeLabels = { work: 'Work', education: 'Education' };
 	.timeline-card h3 {
 		font-size: 1.2rem;
 		margin: 0 0 0.15rem;
-		color: rgb(var(--black));
+		color: rgb(var(--gray-dark));
 	}
 
 	.organization {

@@ -1,8 +1,8 @@
 ---
-import PageLayout from '../components/PageLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import BaseHead from '../components/BaseHead.astro';
+import BackLink from '../components/BackLink.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 
 interface Props {
@@ -14,10 +14,26 @@ interface Props {
 	techStack: string[];
 	githubUrl?: string;
 	liveUrl?: string;
+	additionalGithubUrls?: { label: string; url: string }[];
 }
 
-const { title, description, pubDate, updatedDate, heroImage, techStack, githubUrl, liveUrl } =
-	Astro.props;
+const {
+	title,
+	description,
+	pubDate,
+	updatedDate,
+	heroImage,
+	techStack,
+	githubUrl,
+	liveUrl,
+	additionalGithubUrls,
+} = Astro.props;
+
+const hasLinks = githubUrl || liveUrl || additionalGithubUrls?.length;
+
+function isExternal(url: string) {
+	return url.startsWith('http://') || url.startsWith('https://');
+}
 ---
 
 <html lang="en">
@@ -34,6 +50,7 @@ const { title, description, pubDate, updatedDate, heroImage, techStack, githubUr
 					</div>
 				)}
 				<div class="prose">
+					<BackLink href="/projects" label="Back to projects" />
 					<header class="project-header">
 						<p class="date">
 							<FormattedDate date={pubDate} />
@@ -50,18 +67,41 @@ const { title, description, pubDate, updatedDate, heroImage, techStack, githubUr
 						<div class="tech-stack">
 							{techStack.map((tech) => <span class="tag">{tech}</span>)}
 						</div>
-						{(githubUrl || liveUrl) && (
+						{hasLinks && (
 							<div class="project-links">
-								{githubUrl && (
-									<a href={githubUrl} target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-										View Source
-									</a>
-								)}
 								{liveUrl && (
-									<a href={liveUrl} target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-										Live Demo
+									<a
+										href={liveUrl}
+										target="_blank"
+										rel="noopener noreferrer"
+										class="btn btn-primary btn-full"
+									>
+										Try Demo →
 									</a>
 								)}
+								<div class="secondary-btns">
+									{githubUrl && (
+										<a
+											href={githubUrl}
+											target="_blank"
+											rel="noopener noreferrer"
+											class:list={['btn', liveUrl ? 'btn-secondary' : 'btn-primary']}
+										>
+											View Source
+										</a>
+									)}
+									{additionalGithubUrls?.map((repo) => (
+										<a
+											href={repo.url}
+											class="btn btn-secondary"
+											{...(isExternal(repo.url)
+												? { target: '_blank', rel: 'noopener noreferrer' }
+												: {})}
+										>
+											{repo.label}
+										</a>
+									))}
+								</div>
 							</div>
 						)}
 						<hr />
@@ -141,28 +181,44 @@ const { title, description, pubDate, updatedDate, heroImage, techStack, githubUr
 
 	.project-links {
 		display: flex;
-		flex-wrap: wrap;
+		flex-direction: column;
 		gap: 0.75rem;
 		margin-bottom: 1.5rem;
 	}
 
+	.secondary-btns {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+	}
+
 	.btn {
 		display: inline-block;
+		box-sizing: border-box;
 		padding: 0.55rem 1.2rem;
 		border-radius: 8px;
 		font-size: 0.9rem;
 		font-weight: 700;
 		text-decoration: none;
-		transition: background 0.2s, color 0.2s;
+		text-align: center;
+		transition: background 0.2s, color 0.2s, border-color 0.2s;
+	}
+
+	.btn-full {
+		width: 100%;
+		padding: 0.75rem 1.2rem;
+		font-size: 1rem;
 	}
 
 	.btn-primary {
 		background: var(--accent);
 		color: #fff;
+		border: 2px solid var(--accent);
 	}
 
 	.btn-primary:hover {
 		background: var(--accent-dark);
+		border-color: var(--accent-dark);
 		color: #fff;
 	}
 

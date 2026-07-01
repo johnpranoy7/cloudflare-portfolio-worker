@@ -2,14 +2,17 @@
 import BaseHead from './BaseHead.astro';
 import Header from './Header.astro';
 import Footer from './Footer.astro';
+import BackLink from './BackLink.astro';
 
 interface Props {
 	title: string;
 	description: string;
 	image?: string;
+	backHref?: string;
+	backLabel?: string;
 }
 
-const { title, description, image } = Astro.props;
+const { title, description, image, backHref, backLabel } = Astro.props;
 ---
 
 <!doctype html>
@@ -20,8 +23,19 @@ const { title, description, image } = Astro.props;
 	<body>
 		<Header />
 		<main>
+			{backHref && backLabel && (
+				<div class="page-back">
+					<BackLink href={backHref} label={backLabel} />
+				</div>
+			)}
 			<slot />
 		</main>
 		<Footer />
 	</body>
 </html>
+
+<style>
+	.page-back {
+		margin-bottom: -0.5rem;
+	}
+</style>

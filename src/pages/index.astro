@@ -9,9 +9,17 @@ import Contact from '../components/Contact.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import { getCollection } from 'astro:content';
 
-const projects = (await getCollection('projects'))
+const allProjects = await getCollection('projects');
+const projects = allProjects
 	.filter((p) => p.data.featured)
-	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+	.sort((a, b) => {
+		const aDemo = a.data.liveUrl ? 1 : 0;
+		const bDemo = b.data.liveUrl ? 1 : 0;
+		if (bDemo !== aDemo) return bDemo - aDemo;
+		return b.data.pubDate.valueOf() - a.data.pubDate.valueOf();
+	});
+const projectCount = allProjects.length;
+const demoCount = allProjects.filter((p) => p.data.liveUrl).length;
 ---
 
 <PageLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
@@ -25,7 +33,8 @@ const projects = (await getCollection('projects'))
 			<a href="/projects" class="view-all">View all →</a>
 		</div>
 		<p class="section-subtitle">
-			A selection of professional work, side projects, and technical prototypes.
+			Highlighted work across AI, backend systems, and research — {demoCount} projects with live demos.
+			<a href="/projects">View all {projectCount} →</a>
 		</p>
 		<div class="project-grid">
 			{projects.map((project) => <ProjectCard project={project} />)}
@@ -59,6 +68,16 @@ const projects = (await getCollection('projects'))
 	.section-subtitle {
 		color: rgb(var(--gray));
 		margin: 0 0 1.5rem;
+	}
+
+	.section-subtitle a {
+		font-weight: 700;
+		color: var(--accent);
+		text-decoration: none;
+	}
+
+	.section-subtitle a:hover {
+		text-decoration: underline;
 	}
 
 	.view-all {

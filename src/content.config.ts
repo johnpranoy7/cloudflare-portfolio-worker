@@ -10,9 +10,18 @@ const projects = defineCollection({
 		pubDate: z.coerce.date(),
 		updatedDate: z.coerce.date().optional(),
 		heroImage: z.string().optional(),
+		category: z.enum(['ai', 'microservices', 'games', 'research']),
 		techStack: z.array(z.string()),
 		githubUrl: z.string().url().optional(),
 		liveUrl: z.string().url().optional(),
+		additionalGithubUrls: z
+			.array(
+				z.object({
+					label: z.string(),
+					url: z.string(),
+				}),
+			)
+			.optional(),
 		featured: z.boolean().default(false),
 	}),
 });

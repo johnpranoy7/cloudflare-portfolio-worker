@@ -1,5 +1,7 @@
 // Site-wide constants — sourced from resume & LinkedIn (May 2026).
 
+// Update `site` in astro.config.mjs to your production URL before deploying.
+export const SITE_URL = 'https://example.com';
 export const SITE_TITLE = 'John Pranoy Yalla';
 export const SITE_DESCRIPTION =
 	'Full Stack Software Engineer with 6+ years building enterprise applications on AWS and OpenShift. Expertise in Spring Boot microservices, event-driven Kafka systems, and applied AI with Spring AI. MS Software Engineering, Kennesaw State University.';
@@ -25,6 +27,22 @@ export const RESUME = {
 	url: '/resume.pdf',
 	label: 'View Resume',
 };
+
+export const PROJECT_CATEGORIES = {
+	ai: 'AI & LLM',
+	microservices: 'Microservices & Backend',
+	games: 'Games & Interactive',
+	research: 'Research & Tools',
+} as const;
+
+export type ProjectCategory = keyof typeof PROJECT_CATEGORIES;
+
+export const PROJECT_CATEGORY_ORDER: ProjectCategory[] = [
+	'ai',
+	'microservices',
+	'games',
+	'research',
+];
 
 export const SKILLS: { category: string; items: string[] }[] = [
 	{

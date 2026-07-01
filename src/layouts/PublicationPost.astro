@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import BackLink from '../components/BackLink.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 
 interface Props {
@@ -24,7 +25,7 @@ const { title, description, venue, pubDate, paperUrl } = Astro.props;
 		<main class="publication-main">
 			<article>
 				<div class="prose">
-					<a href="/#publications" class="back-link">← Back to publications</a>
+					<BackLink href="/#publications" label="Back to publications" />
 					<header class="publication-header">
 						<div class="meta">
 							<span class="venue">{venue}</span>
@@ -63,19 +64,6 @@ const { title, description, venue, pubDate, paperUrl } = Astro.props;
 
 	.publication-header {
 		margin-bottom: 2rem;
-	}
-
-	.back-link {
-		display: inline-block;
-		font-size: 0.9rem;
-		font-weight: 700;
-		color: rgb(var(--gray));
-		text-decoration: none;
-		margin-bottom: 1.5rem;
-	}
-
-	.back-link:hover {
-		color: var(--accent);
 	}
 
 	.meta {

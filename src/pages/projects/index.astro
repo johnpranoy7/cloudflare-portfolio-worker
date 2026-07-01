@@ -1,29 +1,48 @@
 ---
 import PageLayout from '../../components/PageLayout.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
-import { SITE_TITLE } from '../../consts';
+import { SITE_TITLE, PROJECT_CATEGORIES, PROJECT_CATEGORY_ORDER } from '../../consts';
 import { getCollection } from 'astro:content';
 
 const projects = (await getCollection('projects')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
+
+const grouped = PROJECT_CATEGORY_ORDER.map((category) => ({
+	category,
+	label: PROJECT_CATEGORIES[category],
+	projects: projects.filter((p) => p.data.category === category),
+})).filter((group) => group.projects.length > 0);
+
+const demoCount = projects.filter((p) => p.data.liveUrl).length;
 ---
 
 <PageLayout
 	title={`Projects | ${SITE_TITLE}`}
-	description="A collection of software projects spanning backend APIs, microservices, dashboards, and cloud infrastructure."
+	description="AI chatbots, microservices, games, and research projects — with live demos where available."
+	backHref="/"
+	backLabel="Back to home"
 >
 	<header class="page-header">
 		<h1>Projects</h1>
 		<p>
-			Selected work from {projects.length} projects across backend development, distributed systems,
-			and full-stack applications.
+			{projects.length} projects across AI, backend systems, games, and research — {demoCount} with
+			live demos you can try right now.
 		</p>
 	</header>
 
-	<div class="project-grid">
-		{projects.map((project) => <ProjectCard project={project} />)}
-	</div>
+	{
+		grouped.map((group) => (
+			<section class="project-group">
+				<h2>{group.label}</h2>
+				<div class="project-grid">
+					{group.projects.map((project) => (
+						<ProjectCard project={project} />
+					))}
+				</div>
+			</section>
+		))
+	}
 </PageLayout>
 
 <style>
@@ -38,13 +57,24 @@ const projects = (await getCollection('projects')).sort(
 
 	.page-header p {
 		color: rgb(var(--gray));
-		max-width: 560px;
+		max-width: 600px;
+	}
+
+	.project-group {
+		margin-bottom: 3rem;
+	}
+
+	.project-group h2 {
+		font-size: 1.35rem;
+		margin: 0 0 1.25rem;
+		color: rgb(var(--black));
+		padding-bottom: 0.5rem;
+		border-bottom: 2px solid rgb(var(--gray-light));
 	}
 
 	.project-grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 		gap: 1.25rem;
-		margin-bottom: 2rem;
 	}
 </style>

@@ -10,10 +10,8 @@ featured: false
 
 ## Overview
 
-This portfolio site, deployed globally on Cloudflare's edge network. Built with Astro for zero-JS-by-default performance and content collections for project and publication management.
+This portfolio site, deployed globally on Cloudflare's edge network. This is mainly built to showcase my Projects and have all the Project's demo links in one place. I initially tried to deploy my projects on render's free-tier. But they were extremely slow for free-tier and also had a cold-start limitation. So after some research, I thought it would be a good idea to deploy on my own server (Old Laptop) and use Cloudflare tunnels to host my apps. Each app is deployed on a different sub-domain and are the projects details and live demo links are hosted here in this Portfolio App. 
 
 ## Key Features
 
-- Edge deployment across 300+ Cloudflare data centers
-- Content collections with type-safe frontmatter
 - Grouped projects, publications, and experience timeline

@@ -1,15 +1,15 @@
 // Site-wide constants — sourced from resume & LinkedIn (May 2026).
 
 // Update `site` in astro.config.mjs to your production URL before deploying.
-export const SITE_URL = 'https://example.com';
+export const SITE_URL = 'https://johnpranoy7.dev';
 export const SITE_TITLE = 'John Pranoy Yalla';
 export const SITE_DESCRIPTION =
-	'Full Stack Software Engineer with 6+ years building enterprise applications on AWS and OpenShift. Expertise in Spring Boot microservices, event-driven Kafka systems, and applied AI with Spring AI. MS Software Engineering, Kennesaw State University.';
+	'Full Stack Software Engineer with 7+ years building enterprise applications on AWS and OpenShift. Expertise in Spring Boot microservices, event-driven Kafka systems, and applied AI with Spring AI. MS Software Engineering, Kennesaw State University.';
 
 export const PERSON = {
 	name: 'John Pranoy Yalla',
 	title: 'Full Stack Software Engineer',
-	experience: '6+ years',
+	experience: '7+ years',
 	location: 'Atlanta, GA',
 	email: 'johnpranoy7@gmail.com',
 	phone: '+1 678-249-9518',
@@ -107,11 +107,11 @@ export const EXPERIENCE: ExperienceEntry[] = [
 	{
 		title: 'Java Software Engineer',
 		organization: 'Capgemini (Client: MUFG Union Bank, USA)',
-		startDate: 'May 2019',
+		startDate: 'Dec 2018',
 		endDate: 'Apr 2021',
 		type: 'work',
 		description:
-			'Progressed from Software Engineer to Senior Software Engineer. Modernized legacy banking applications into event-driven microservices with Java, Spring Boot, and Kafka. Deployed to AWS (EC2, S3, RDS). Optimized SQL and stored procedures (~35% batch runtime reduction). Built Splunk dashboards that cut MTTR by ~50% and Selenium automation in Jenkins that shrank QA cycles from days to under a day.',
+			'Progressed from Intern, to Software Engineer and finally to Senior Software Engineer. Modernized legacy banking applications into event-driven microservices with Java, Spring Boot, and Kafka. Deployed to AWS (EC2, S3, RDS). Optimized SQL and stored procedures (~35% batch runtime reduction). Built Splunk dashboards that cut MTTR by ~50% and Selenium automation in Jenkins that shrank QA cycles from days to under a day.',
 		tags: ['Java', 'Spring Boot', 'Kafka', 'AWS', 'Splunk'],
 	},
 ];

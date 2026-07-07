@@ -15,7 +15,7 @@ A classic coin-collection game built in Unity with C#. Exported to WebGL and hos
 
 ## Key Features
 
-- 2D gameplay with coin collection mechanics
+- 2D Platformer gameplay with coin collection mechanics
 - Unity scene management and player controls
 - WebGL build deployed to GitHub Pages
 

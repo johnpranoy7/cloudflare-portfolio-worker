@@ -11,7 +11,7 @@ featured: true
 
 ## Overview
 
-A healthcare interoperability project implementing an HL7 FHIR client — enabling standardized access to patient, observation, and clinical resources through the FHIR REST API.
+A healthcare interoperability project implementing a HL7 FHIR client — enabling standardized access to patient, observation, and clinical resources through the FHIR REST API.
 
 ## Key Features
 

@@ -11,7 +11,7 @@ featured: true
 
 ## Overview
 
-A classic coin-collection game built in Unity with C#. Exported to WebGL and hosted on GitHub Pages so anyone can play directly in the browser. This project was initially built as part of the coursework. I enjoyed building this in Unity and learnt a lot during the process. Please give it a try and let me know what you think.
+A classic coin-collection game built in Unity with C#. Exported to WebGL and hosted on GitHub Pages so anyone can play directly in the browser — no install required. Originally built as coursework, it includes multi-level platformer gameplay with scene management, player controls, and coin-collection mechanics. I enjoyed building it in Unity and learned a lot during the process.
 
 ## Key Features
 

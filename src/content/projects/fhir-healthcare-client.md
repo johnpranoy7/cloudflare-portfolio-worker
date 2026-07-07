@@ -11,9 +11,9 @@ featured: true
 
 ## Overview
 
-A healthcare interoperability project implementing a HL7 FHIR client — enabling standardized access to patient, observation, and clinical resources through the FHIR REST API. 
+A healthcare interoperability project implementing an HL7 FHIR client — enabling standardized access to patient, observation, and clinical resources through the FHIR REST API. This small POC walks through the happy path from patient search to document download against a remote FHIR server (another hospital).
 
-I had a conversation with someone from the Medical domain and we discussed a few things regarding architecture. Honestly, I didn't have much idea about Medical records or how they are maintained. So the next few days I spent some time trying to understand what HL7 is and what are the different types/standards currently being used. After going through the details, I wanted to build an app that can retrieve the documents from a server(another hospital). So this app is a small POC built to showcase the happypath - from Patient search to their document download. 
+I had a conversation with someone in the healthcare field and we discussed a few things regarding architecture. Honestly, I didn't know much about medical records or how they are maintained. Over the next few days, I researched what HL7 is and which standards are in use today. After that, I wanted to build an app that could retrieve documents from a remote FHIR server — this project became a hands-on way to learn healthcare interoperability while showcasing that end-to-end flow.
 
 ## Key Features
 

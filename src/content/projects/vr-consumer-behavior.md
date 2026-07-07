@@ -14,7 +14,7 @@ featured: false
 
 ## Overview
 
-Graduate research project studying consumer behavior in virtual retail environments. Developed an immersive virtual store in Unity to simulate real-world shopping and capture granular user interaction telemetry.
+Graduate Research Assistant project at Kennesaw State University studying consumer behavior in virtual retail environments. I developed an immersive Unity VR store to simulate real-world shopping and capture granular user interaction telemetry for behavioral analytics.
 
 ## Publications
 

@@ -10,8 +10,12 @@ featured: false
 
 ## Overview
 
-This portfolio site, deployed globally on Cloudflare's edge network. This is mainly built to showcase my Projects and have all the Project's demo links in one place. I initially tried to deploy my projects on render's free-tier. But they were extremely slow for free-tier and also had a cold-start limitation. So after some research, I thought it would be a good idea to deploy on my own server (Old Laptop) and use Cloudflare tunnels to host my apps. Each app is deployed on a different sub-domain and are the projects details and live demo links are hosted here in this Portfolio App. 
+This portfolio site is deployed globally on Cloudflare's edge network at [johnpranoy7.dev](https://johnpranoy7.dev). It centralizes my projects, publications, and live demo links in one place.
+
+I initially deployed demos on Render's free tier, but cold starts and slow response times made for a poor experience. After some research, I moved to self-hosting on a home server and exposing each app through Cloudflare Tunnels — FHIR, the UAP chatbot, gRPC, and others each get their own subdomain. Project write-ups and demo links live here in this Astro app.
 
 ## Key Features
 
 - Grouped projects, publications, and experience timeline
+- Live demo links for deployed projects across custom subdomains
+- Edge-deployed on Cloudflare Workers with Astro and TypeScript

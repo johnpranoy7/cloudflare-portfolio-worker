@@ -10,7 +10,7 @@ featured: true
 
 ## Overview
 
-Master's capstone at Kennesaw State University — a production-grade conversational AI system that retrieves context via RAG, evaluates response faithfulness with an LLM-as-Judge layer, and autonomously invokes external REST APIs through tool-calling based on user intent.
+Master's capstone at Kennesaw State University — a production-grade conversational AI system that retrieves context via RAG, evaluates response faithfulness with an LLM-as-Judge layer, and autonomously invokes external REST APIs through tool-calling based on user intent. Source code is available on GitHub
 
 ## Key Features
 

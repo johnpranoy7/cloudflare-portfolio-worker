@@ -10,7 +10,7 @@ featured: false
 
 ## Overview
 
-Graduate Research Assistant project at Kennesaw State University (Aug – Dec 2025). Implemented spectrum-based fault localization (Tarantula, Ochiai) in Java to automate fault detection across large-scale codebases.
+Graduate Research Assistant project at Kennesaw State University (Aug – Dec 2025). I designed and implemented a Maven plugin that combines PITest mutation testing with spectrum-based fault localization — Tarantula and Ochiai algorithms — to rank suspicious code locations and automate fault detection across multi-module Java codebases.
 
 ## Key Features
 

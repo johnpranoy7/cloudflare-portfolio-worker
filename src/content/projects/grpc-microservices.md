@@ -3,19 +3,20 @@ title: gRPC Microservices Stack
 description: Distributed system with a gRPC server, Java client, and Angular UI — demonstrating high-performance RPC across services.
 pubDate: 2024-04-01
 category: microservices
-techStack: ['gRPC', 'Java', 'Angular', 'Protocol Buffers', 'Microservices']
+techStack: ['gRPC', 'Java', 'Angular', 'Protocol Buffers', 'Microservices', 'Cloudflare']
 githubUrl: https://github.com/johnpranoy7/grpc-server
+liveUrl: https://grpc.johnpranoy7.dev/
 additionalGithubUrls:
   - label: gRPC Client
     url: https://github.com/johnpranoy7/grpc-client
   - label: Angular UI
     url: https://github.com/johnpranoy7/grpc-Angular-ui
-featured: false
+featured: true
 ---
 
 ## Overview
 
-A multi-repo microservices demonstration using gRPC for efficient binary communication between a Java server, Java client, and Angular frontend.
+A multi-repo microservices demonstration using gRPC for efficient binary communication between a Java server, Java client, and Angular frontend. gRPC and Protocol Buffers offer lower-latency, strongly typed service contracts compared to JSON REST — a good fit for service-to-service calls.
 
 ## Repositories
 
@@ -30,3 +31,7 @@ A multi-repo microservices demonstration using gRPC for efficient binary communi
 - Protocol Buffers for strongly typed service contracts
 - Low-latency RPC compared to REST for service-to-service calls
 - Full-stack integration from Angular UI through gRPC to Java services
+
+## Live Demo
+
+Try the demo at [grpc.johnpranoy7.dev](https://grpc.johnpranoy7.dev/).

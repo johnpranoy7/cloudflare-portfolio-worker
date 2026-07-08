@@ -136,6 +136,50 @@ p {
 .prose p {
 	margin-bottom: 2em;
 }
+
+.prose h2 {
+	font-size: 1.75rem;
+	margin-top: 2.25rem;
+	margin-bottom: 0.85rem;
+}
+
+.prose h3 {
+	font-size: 1.35rem;
+	margin-top: 1.75rem;
+	margin-bottom: 0.65rem;
+}
+
+.prose ul,
+.prose ol {
+	margin: 0 0 1.5rem;
+	padding-left: 1.5rem;
+}
+
+.prose li {
+	margin-bottom: 0.35rem;
+}
+
+.prose table {
+	width: 100%;
+	margin: 1rem 0 2rem;
+	border-collapse: collapse;
+}
+
+.prose th,
+.prose td {
+	padding: 0.65rem 0.85rem;
+	border: 1px solid rgb(var(--gray-light));
+	text-align: left;
+}
+
+.prose th {
+	background: rgb(var(--surface-subtle));
+	font-weight: 700;
+}
+
+.prose hr {
+	margin: 2rem 0;
+}
 textarea {
 	width: 100%;
 	font-size: 16px;

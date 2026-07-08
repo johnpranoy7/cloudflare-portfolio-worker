@@ -28,7 +28,6 @@ I built this mainly to showcase the different communication modes gRPC supports 
 | [grpc-client](https://github.com/johnpranoy7/grpc-client) | Java client consuming the gRPC service |
 | [grpc-Angular-ui](https://github.com/johnpranoy7/grpc-Angular-ui) | Angular frontend interfacing with the backend |
 
-
 ## Technical Highlights
 
 - Protocol Buffers for strongly typed service contracts

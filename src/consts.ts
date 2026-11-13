@@ -31,7 +31,7 @@ export const RESUME = {
 export const PROJECT_CATEGORIES = {
 	ai: 'AI & LLM',
 	microservices: 'Microservices & Backend',
-	games: 'Games & Interactive',
+	games: 'Apps & Games',
 	research: 'Research & Tools',
 } as const;
 

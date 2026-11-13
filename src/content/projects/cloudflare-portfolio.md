@@ -12,7 +12,7 @@ featured: false
 
 This portfolio site is deployed globally on Cloudflare's edge network at [johnpranoy7.dev](https://johnpranoy7.dev). It centralizes my projects, publications, and live demo links in one place.
 
-I initially deployed demos on Render's free tier, but cold starts and slow response times made for a poor experience. After some research, I moved to self-hosting on a home server and exposing each app through Cloudflare Tunnels — FHIR, the UAP chatbot, gRPC, and others each get their own subdomain. Project write-ups and demo links live here in this Astro app.
+I initially deployed demos on Render's free tier, but cold starts and slow response times made for a poor experience. After some research, I moved to self-hosting on a home server and exposing each app through Cloudflare Tunnels — FHIR, the UAP chatbot, gRPC, Whitenoise, Pour Over, and others each get their own subdomain. Project write-ups and demo links live here in this Astro app.
 
 ## Key Features
 

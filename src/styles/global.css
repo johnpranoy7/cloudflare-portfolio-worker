@@ -4,58 +4,58 @@
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
 
-/* Light — soft green canvas, white cards, green accent */
+/* Warm Paper — default. Cream canvas, white cards, black text, blue accent */
 [data-theme='warm'] {
 	color-scheme: light;
 
-	--accent: #2f8f5b;
-	--accent-dark: #247048;
-	--accent-rgb: 47, 143, 91;
+	--accent: #2563eb;
+	--accent-dark: #1d4ed8;
+	--accent-rgb: 37, 99, 235;
 	--accent-text: 255, 255, 255;
-	--black: 18, 32, 24;
-	--gray: 90, 110, 98;
-	--gray-light: 198, 216, 204;
-	--gray-dark: 36, 52, 42;
+	--black: 15, 18, 25;
+	--gray: 100, 108, 120;
+	--gray-light: 222, 216, 204;
+	--gray-dark: 40, 44, 52;
 	--surface: 255, 255, 255;
-	--surface-heading: 18, 32, 24;
-	--surface-body: 36, 52, 42;
-	--surface-muted: 90, 110, 98;
-	--surface-border: 198, 216, 204;
-	--surface-subtle: 232, 242, 234;
-	--header-bg: 244, 250, 245;
+	--surface-heading: 15, 18, 25;
+	--surface-body: 40, 44, 52;
+	--surface-muted: 100, 108, 120;
+	--surface-border: 222, 216, 204;
+	--surface-subtle: 236, 232, 224;
+	--header-bg: 252, 250, 246;
 	--timeline-ring: 255, 255, 255;
-	--body-gradient-start: rgba(214, 232, 220, 0.95);
-	--body-gradient-end: 236, 245, 238;
-	--header-shadow: 0 1px 3px rgba(24, 48, 32, 0.06), 0 4px 14px rgba(24, 48, 32, 0.04);
+	--body-gradient-start: rgba(235, 228, 214, 0.9);
+	--body-gradient-end: 244, 240, 232;
+	--header-shadow: 0 1px 3px rgba(40, 36, 30, 0.06), 0 4px 14px rgba(40, 36, 30, 0.04);
 	--box-shadow:
-		0 1px 3px rgba(24, 48, 32, 0.05), 0 6px 20px rgba(24, 48, 32, 0.06);
+		0 1px 3px rgba(40, 36, 30, 0.05), 0 6px 20px rgba(40, 36, 30, 0.06);
 }
 
-/* Dark — deep orange canvas, cream cards, orange accent */
+/* Charcoal — warm dark canvas, cream cards (same contrast idea as warm paper) */
 [data-theme='charcoal'] {
 	color-scheme: dark;
 
-	--accent: #e8923a;
-	--accent-dark: #d47820;
-	--accent-rgb: 232, 146, 58;
-	--accent-text: 36, 22, 12;
-	--black: 255, 246, 236;
-	--gray: 196, 168, 140;
-	--gray-light: 78, 48, 28;
-	--gray-dark: 232, 214, 196;
-	--surface: 255, 246, 236;
-	--surface-heading: 36, 22, 12;
-	--surface-body: 52, 32, 18;
-	--surface-muted: 120, 88, 58;
-	--surface-border: 230, 208, 180;
-	--surface-subtle: 248, 236, 220;
-	--header-bg: 48, 28, 16;
-	--timeline-ring: 255, 246, 236;
-	--body-gradient-start: rgba(62, 34, 18, 0.98);
-	--body-gradient-end: 36, 20, 12;
-	--header-shadow: 0 1px 0 rgba(255, 200, 140, 0.08);
+	--accent: #6ba3d4;
+	--accent-dark: #4f8fc4;
+	--accent-rgb: 107, 163, 212;
+	--accent-text: 26, 24, 22;
+	--black: 250, 248, 244;
+	--gray: 168, 160, 148;
+	--gray-light: 62, 58, 52;
+	--gray-dark: 216, 210, 200;
+	--surface: 250, 248, 244;
+	--surface-heading: 15, 18, 25;
+	--surface-body: 40, 44, 52;
+	--surface-muted: 100, 108, 120;
+	--surface-border: 214, 208, 196;
+	--surface-subtle: 238, 234, 226;
+	--header-bg: 48, 45, 40;
+	--timeline-ring: 250, 248, 244;
+	--body-gradient-start: rgba(56, 53, 48, 0.98);
+	--body-gradient-end: 38, 36, 32;
+	--header-shadow: 0 1px 0 rgba(255, 255, 255, 0.06);
 	--box-shadow:
-		0 2px 8px rgba(0, 0, 0, 0.28), 0 8px 24px rgba(0, 0, 0, 0.2);
+		0 2px 8px rgba(0, 0, 0, 0.22), 0 8px 24px rgba(0, 0, 0, 0.16);
 }
 
 html {
